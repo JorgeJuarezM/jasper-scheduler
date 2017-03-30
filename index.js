@@ -68,7 +68,8 @@ for(cronIndex in crons)
 
 	
 
-	scheduler.scheduleJob((cron.interval || "* 0 * * * *"), function() {
+	scheduler.scheduleJob((cron.interval || "* 0 * * * *"), (function() {
+		return function() {
 			console.log("Evento En Ejecucion");
 
 			var params = cron.params || {};
@@ -110,5 +111,6 @@ for(cronIndex in crons)
 				}
 				
 			});
-	});
+	}
+	})());
 }
