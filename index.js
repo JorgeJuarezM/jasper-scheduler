@@ -12,9 +12,9 @@ var NORMALIZE_DATE = function (_today) {
     return _today;
 };
 
-var TODAY = (function () {
+var TODAY = function () {
     return NORMALIZE_DATE(new Date());
-})();
+};
 
 
 var ADD_DAYS = function (interval, date) {
@@ -29,26 +29,26 @@ var DATE_TO_STRING = function (_today) {
     return _today.toISOString().substr(0, 10);
 };
 
-var FIRST_MONTH_DAY = (function () {
+var FIRST_MONTH_DAY = function () {
     var _today = new Date();
     _today.setDate(1);
     return NORMALIZE_DATE(_today);
-})();
+};
 
 
-var LAST_MONTH_DAY = (function () {
+var LAST_MONTH_DAY = function () {
     var _today = new Date();
     _today = new Date(_today.getFullYear(), _today.getMonth() + 1, 0);
     return NORMALIZE_DATE(_today);
-})();
+};
 
 
-var LAST_MONTH = (function () {
+var LAST_MONTH = function () {
     var _today = new Date();
     _today = new Date(_today.getFullYear(), _today.getMonth() + 1, 1);
 
     return NORMALIZE_DATE(_today).getMonth() + 1;
-})();
+};
 
 
 var evalValue = function(value) {
